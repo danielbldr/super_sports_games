@@ -17,13 +17,13 @@ class Event
   end
 
   def average_age
-    @ages.sum/@ages.length
+    @ages.sum.to_f/@ages.length
   end
 
   def standard_deviation_age
     standard_dev = []
     @ages.each do |age|
-      standard_dev << ((age - (@ages.sum/@ages.length)) ** 2)
+      standard_dev << ((age - (@ages.sum.to_f/@ages.length).round(1)) ** 2).round(2)
     end
     Math.sqrt(standard_dev.sum/@ages.length).round(2)
   end
